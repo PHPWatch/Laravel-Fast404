@@ -1,0 +1,16 @@
+{
+    "name": "phpwatch/fast404-laravel",
+    "type": "library",
+    "require": {
+        "php": "^7.4",
+        "phpwatch/fast404": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ayesh Karunaratne",
+            "email": "ayesh@ayesh.me"
+        }
+    ],
+    "minimum-stability": "stable"
+}
