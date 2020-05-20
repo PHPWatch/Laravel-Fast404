@@ -1,9 +1,9 @@
 {
-    "name": "phpwatch/fast404-laravel",
+    "name": "phpwatch/laravel-fast404",
     "type": "library",
     "require": {
         "php": "^7.4",
-        "phpwatch/fast404": "^1.0"
+        "illuminate/http": "^7.11"
     },
     "license": "MIT",
     "authors": [
