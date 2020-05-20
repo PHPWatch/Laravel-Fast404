@@ -5,6 +5,8 @@ Laravel Fast 404 is a Laravel package that adds a global middleware to your Lara
 
 This is done by inspecting every incoming HTTP request's "Accept" header and the URI path. If the URI path ends with a known static file extension (such as `.jpg`, `.png`, `.woff`, etc), and the `Accept` header does not mention `text/html` (which is the case when browsers request images, web fonts, JS files, CSS files, etc), the request is immediately terminated by this middleware.
 
+[![Latest Stable Version](https://poser.pugx.org/phpwatch/laravel-fast404/v)](https://packagist.org/packages/phpwatch/laravel-fast404) [![Total Downloads](https://poser.pugx.org/phpwatch/laravel-fast404/downloads)](https://packagist.org/packages/phpwatch/laravel-fast404) [![License](https://poser.pugx.org/phpwatch/laravel-fast404/license)](https://packagist.org/packages/phpwatch/laravel-fast404) ![CI](https://github.com/PHPWatch/Laravel-Fast404/workflows/CI/badge.svg)
+
 ## Requirements
 
  - Laravel 5.5+, 6, or 7
