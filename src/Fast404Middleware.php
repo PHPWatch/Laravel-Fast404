@@ -21,7 +21,7 @@ class Fast404Middleware {
         $this->exclude_regex = $exclude_regex;
     }
 
-    public function handle( $request, callable $next) {
+    public function handle(Request $request, callable $next) {
         if ($this->isFast404($request)) {
             $this->terminate();
         }
@@ -30,7 +30,7 @@ class Fast404Middleware {
     }
 
     public function isFast404(Request $request): bool {
-        $uri = $request->getPathInfo();
+        $uri = $request->path();
         return
             $this->regex
             && strpos($request->header('Accept'), static::ALLOW_MIME) === false
