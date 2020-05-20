@@ -26,7 +26,7 @@ Upon installation, Laravel will automatically register the Service Provider bund
 
 ## Configuration
 
-You can configure the message, the regular expression used to match URI patterns (e.g a list of file extensions), and optionally an exclusion regular expression.
+You can configure the message, the regular expression used to match URI patterns (e.g. a list of file extensions), and optionally an exclusion regular expression.
 
 ### From configuration files
  
@@ -51,7 +51,7 @@ All configuration values **must** be strings.
 |---|---|---|
 |`message`|`Not Found`|The message to be shown when this package terminates a request. It might contain HTML. Try to keep the message short.|
 |`regex`|[`/\.(?:js\|css\...woff2)$/i`](#file-type-extensions)|A full regular expression to match against the request URI (without base-URI and URL parameters). If matched, this package will attempt to terminate the request. The default value will be used if `null` is passed. Make sure to include expression delimiters and flags if necessary. It is recommended to keep the default value.|
-|`exclude_regex`|``|An optional regular expression to match, and if matched, this package will **not** terminate the request even if the `exclude` expression matched positive. This can be used to declare exclusion patterns if your Laravel application generates images on-the-fly, provides dynamic `.js` files, etc.|
+|`exclude_regex`|`null`|An optional regular expression to match, and if matched, this package will **not** terminate the request even if the `exclude` expression matched positive. This can be used to declare exclusion patterns if your Laravel application generates images on-the-fly, provides dynamic `.js` files, etc.|
 
 ### File type extensions
 
@@ -101,7 +101,7 @@ class Kernel extends HttpKernel
  
 Make sure to add `\PHPWatch\LaravelFast404\Fast404Middleware::class,` to the top because middlewares are run in the order they are declared.
 
-### Optional step 3: Register a service provider for further custimizations
+### Optional step 3: Register a service provider for further customizations
 
 If you would like to configure the middleware to change the message, file extensions, or the exclusion pattern, you will need to register it in the Service Container.
 
@@ -122,5 +122,5 @@ $this->app->bind(Fast404Middleware::class, static function ($app): Fast404Middle
  
 ## Contributions
 
-Contributions are welcome! Please feel free to send a PR or open an issue. Please note that this Laravel pacakge is in the same line as [`phpwatch/fast404`](https://github.com/PHPWatch/fast404) and [`phpwatch/wordpress-fast404`](https://github.com/PHPWatch/WordPress-Fast404) packages, and the extensions list updates will be made to all packages in a framework-agnostic way.
+Contributions are welcome! Please feel free to send a PR or open an issue. Please note that this Laravel package is in the same line as [`phpwatch/fast404`](https://github.com/PHPWatch/fast404) and [`phpwatch/wordpress-fast404`](https://github.com/PHPWatch/WordPress-Fast404) packages, and the extensions list updates will be made to all packages in a framework-agnostic way.
  
