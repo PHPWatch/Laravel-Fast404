@@ -4,6 +4,7 @@
     "type": "library",
     "keywords": ["larvel", "middleware", "performance", "fast404", "phpwatch"],
     "homepage": "https://github.com/PHPWatch/Laravel-Fast404",
+    "minimum-stability": "stable",
     "require": {
         "php": "^7.4",
         "illuminate/http": "^5.0 || ^6.0 || ^7.0"
@@ -21,12 +22,18 @@
             "PHPWatch\\LaravelFast404\\": "tests/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PHPWatch\\LaravelFast404\\Fast404ServiceProvider"
+            ]
+        }
+    },
     "license": "MIT",
     "authors": [
         {
             "name": "Ayesh Karunaratne",
             "email": "ayesh@ayesh.me"
         }
-    ],
-    "minimum-stability": "stable"
+    ]
 }
