@@ -1,3 +1,7 @@
+<div align="center">
+<img width="1000" height="350" src="https://st.ayesh.me/files/code/laravel-fast404/header.png" alt="Laravel Fast 404">
+</div>
+
 Laravel Fast 404
 ================
 
