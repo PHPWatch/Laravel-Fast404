@@ -36,7 +36,7 @@ jobs:
 
       - name: Install composer dependencies
         if: matrix.php != '8.0'
-        run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+        run: composer install --no-ansi --no-interaction --no-progress --no-suggest
 
       - name: Run tests with phpunit
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
