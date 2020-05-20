@@ -1,0 +1,49 @@
+<?php
+
+namespace PHPWatch\LaravelFast404;
+
+use Illuminate\Http\Request;
+
+use function http_response_code;
+use function preg_match;
+use function strpos;
+
+class Fast404Middleware {
+    private string $error_message;
+    private ?string $regex;
+    private ?string $exclude_regex;
+
+    private const ALLOW_MIME = 'text/html';
+
+    final public function __construct(string $error_message = 'Not found', string $regex = null, ?string $exclude_regex = null) {
+        $this->error_message = $error_message;
+        $this->regex = $regex ?? '/\.(?:js|css|jpg|jpeg|gif|png|webp|ico|exe|bin|dmg)$/i';
+        $this->exclude_regex = $exclude_regex;
+    }
+
+    public function handle( $request, callable $next) {
+        if ($this->isFast404($request)) {
+            $this->terminate();
+        }
+
+        return $next($request);
+    }
+
+    public function isFast404(Request $request): bool {
+        $uri = $request->getPathInfo();
+        return
+            $this->regex
+            && strpos($request->header('Accept'), static::ALLOW_MIME) === false
+            && preg_match($this->regex, $uri)
+            && !(isset($this->exclude_regex) && preg_match($this->exclude_regex, $uri));
+    }
+
+    /**
+     * Terminate the request with an HTTP 404 code. This method is mocked when tested.
+     * @codeCoverageIgnore
+     */
+    protected function terminate(): void {
+        http_response_code(404);
+        die($this->error_message);
+    }
+}
