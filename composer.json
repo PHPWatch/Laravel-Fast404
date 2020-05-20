@@ -1,9 +1,23 @@
 {
     "name": "phpwatch/laravel-fast404",
+    "description": "A Laravel middleware to quickly terminate Page-Not-Found pages that do not require a full HTML page",
     "type": "library",
     "require": {
         "php": "^7.4",
         "illuminate/http": "^7.11"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPWatch\\LaravelFast404\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHPWatch\\LaravelFast404\\": "tests/"
+        }
     },
     "license": "MIT",
     "authors": [
