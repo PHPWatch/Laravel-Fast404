@@ -7,7 +7,7 @@ This is done by inspecting every incoming HTTP request's "Accept" header and the
 
 ## Requirements
 
- - Laravel 5, 6, or 7
+ - Laravel 5.5+, 6, or 7
  - PHP 7.4
  
 ## Installation
@@ -44,11 +44,19 @@ All configuration values **must** be strings.
 |Configuration|Default Value|Description|
 |---|---|---|
 |`message`|`Not Found`|The message to be shown when this package terminates a request. It might contain HTML. Try to keep the message short.|
-|`regex`|`/\.(?:js|css|jpg|jpeg|gif|png|webp|ico|exe|bin|dmg|woff|woff2)$/i`|A full regular expression to match against the request URI (without base-URI and URL parameters). If matched, this package will attempt to terminate the request. The default value will be used if `null` is passed. Make sure to include expression delimiters and flags if necessary. It is recommended to keep the default value.|
+|`regex`|[`/\.(?:js\|css\...woff2)$/i`](#file-type-extensions)|A full regular expression to match against the request URI (without base-URI and URL parameters). If matched, this package will attempt to terminate the request. The default value will be used if `null` is passed. Make sure to include expression delimiters and flags if necessary. It is recommended to keep the default value.|
 |`exclude_regex`|``|An optional regular expression to match, and if matched, this package will **not** terminate the request even if the `exclude` expression matched positive. This can be used to declare exclusion patterns if your Laravel application generates images on-the-fly, provides dynamic `.js` files, etc.|
 
+### File type extensions
 
- 
+The default regular expression is:
+
+```regexp
+/\.(?:js|css|jpg|jpeg|gif|png|webp|ico|exe|bin|dmg|woff|woff2)$/i
+```
+
+This creates a non-capturing group of file types separated by the pipe (`|`) symbol above.
+
 ## By updating the service provider (advanced)
 
 This package bundles a Service Provider that conveniently enables middleware. You can turn this feature off if you wish to configure the middleware to your liking.
