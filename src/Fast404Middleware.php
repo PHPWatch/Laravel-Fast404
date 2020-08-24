@@ -10,9 +10,9 @@ use function preg_match;
 use function strpos;
 
 class Fast404Middleware {
-    private string $error_message;
-    private ?string $regex;
-    private ?string $exclude_regex;
+    private $error_message;
+    private $regex;
+    private $exclude_regex;
 
     protected const ALLOW_MIME = 'text/html';
 
